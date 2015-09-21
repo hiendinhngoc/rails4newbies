@@ -1,10 +1,24 @@
 Rails.application.routes.draw do
+
+  root "sessions#home"
+
+  post 'sessions/login_attempt'
+
+  get 'sessions/profile'
+
+  get 'sessions/setting'
+
   resources :videos
+
   get 'pages/about'
 
   get 'pages/contact'
 
-  root 'videos#index'
+  get "sessions/logout"
+
+  resources :users
+
+  get ':controller(/:action(/:id))(.:format)'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

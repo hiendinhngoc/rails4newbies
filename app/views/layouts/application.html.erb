@@ -29,7 +29,9 @@
       </ul>
     </div>
   </nav>
-
+  <% flash.each do |key, value| %>
+     <div class="alert <%= key %>"><%= value %></div>
+  <% end %>
 <div class="row">
 	<div class="col m10 offset-m1">
 		<%= yield %>

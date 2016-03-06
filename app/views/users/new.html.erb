@@ -3,6 +3,7 @@
 	<h3>Sign Up</h3>
 	<div class="sign_up">
 		<%= form_for @user do |f| %>
+			<%= render 'error_messages' %>
 			<div class="input_form">
 				<%= f.text_field :username, :placeholder => "Name"%>
 				<%= f.text_field :email, :placeholder => "Email"%>
@@ -16,14 +17,5 @@
 			
 		<% end %>
 	</div>
-	</div>
-	<div>
-		<% if @user.errors.any? %>
-			<ul class="Signup_Errors">
-				<% for message_error in @user.errors.full_messages %>
-					<li>* <%= message_error %></li>
-				<% end %>
-			</ul>
-		<% end %>
-	</div>
+</div>
 </div>

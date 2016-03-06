@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   get 'pages/contact'
 
-  get "sessions/logout"
+  delete "sessions/logout"
 
   resources :users
 

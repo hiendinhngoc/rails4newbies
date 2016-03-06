@@ -1,3 +1,24 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.sign_form {
+	text-align: center;
+	margin: auto;
+	padding: 20px;
+	position: relative;
+}
+.sign_up {
+	//text-align: right;
+}
+.input_form {
+	text-align: center;
+	margin: auto;
+	width: 400px;
+	display: block;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;
+   color: #66999 !important;
+   opacity: 1;
+   font-size: 20px;  
+}

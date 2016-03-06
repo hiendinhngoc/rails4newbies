@@ -6,14 +6,11 @@ class User < ActiveRecord::Base
 	validates :password, :confirmation => true
 	validates_length_of :password, :in => 6..20, :on => :create
 
-	before_save :encrypted_password
+	before_save :encrypt_password
 	after_save :clear_password
 
-	def encrypted_passowrd
-		if password.present?
-			self.salt = BCrypt::Engine.generate_salt
-			self.encrypted_passowrd = BCrypt::Engine.hash_secret(password, salt)
-		end
+	def encrypt_password
+		self.encrypted_password = BCrypt::Password.create(password) if password.present?
 	end
 
 	def clear_password
@@ -35,7 +32,7 @@ class User < ActiveRecord::Base
 	end
 
 	def match_password(login_password="")
-		encrypted_passowrd == BCrypt::Engine.hash_secret(login_password, salt)
+    	BCrypt::Password.new(encrypted_password) == login_password
 	end
 
 	private

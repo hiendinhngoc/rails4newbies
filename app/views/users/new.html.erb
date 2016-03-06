@@ -1,18 +1,29 @@
 <% @page_title = "Rails4newbies | Signup" %>
-<div class="Sing_Form">
+<div class="sign_form">
 	<h3>Sign Up</h3>
-	<%= form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |f| %>
-		<p>Username:</br><%= f.text_field :username%></p>
-		<p>Email:</br><%= f.text_field :email%></p>
-		<p>Password:</br><%= f.password_field :password%></p>
-		<p>Password Confirmation:</br><%= f.password_field :password_confirmation%></p>
-		<%= f.submit :Signup %>
-	<% end %>
-	<% if @user.errors.any? %>
-		<ul class="Signup_Errors">
-			<% for message_error in @user.errors.full_messages %>
-				<li>* <%= message_error %></li>
+	<div class="sign_up">
+		<%= form_for @user do |f| %>
+			<div class="input_form">
+				<%= f.text_field :username, :placeholder => "Name"%>
+				<%= f.text_field :email, :placeholder => "Email"%>
+				<%= f.password_field :password, :placeholder => "Password"%>
+				<%= f.password_field :password_confirmation, :placeholder => "Confirmation Password"%>
+			</div>
+			
+			<%= button_tag( :class=> 'waves-effect waves-light btn-large') do %>
+				signup
 			<% end %>
-		</ul>
-	<% end %>
+			
+		<% end %>
+	</div>
+	</div>
+	<div>
+		<% if @user.errors.any? %>
+			<ul class="Signup_Errors">
+				<% for message_error in @user.errors.full_messages %>
+					<li>* <%= message_error %></li>
+				<% end %>
+			</ul>
+		<% end %>
+	</div>
 </div>

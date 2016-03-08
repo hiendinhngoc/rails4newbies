@@ -1,6 +1,15 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
 .sign_form {
 	text-align: center;
 	margin: auto;
@@ -10,7 +19,7 @@
 .input_form {
 	margin: auto;
 	width: 300px;
-	display: block;
+	//display: block;
 }
 input{
 	text-align: center;
@@ -28,8 +37,8 @@ input{
 	margin-bottom: 50px;
 }
 
-.error_explanation {
-	//display: block;
+.alert {
+	text-align: center;
 	margin: auto;
 	color: #ffffff;
 	background-color: #bd362f;
@@ -39,3 +48,6 @@ input{
 	width: 350px;
 }
 
+.page-footer{
+	background-color: #2d3033 !important;
+}
